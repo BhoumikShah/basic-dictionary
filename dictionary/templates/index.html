@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Dictionary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Simple Dictionary</h1>
+    </header>
+
+    <div class="column">
+        <h2>Add Word</h2>
+        <form action="/add" method="post">
+            <label for="word">Word:</label>
+            <input type="text" id="word" name="word" required>
+            <label for="meaning">Meaning:</label>
+            <input type="text" id="meaning" name="meaning" required>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+    <div class="column">
+        <h2>Delete Word</h2>
+        <form action="/delete" method="post">
+            <label for="word">Word:</label>
+            <input type="text" id="word" name="word" required>
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+
+    <div class="column">
+        <h2>Update Meaning</h2>
+        <form action="/update" method="post">
+            <label for="word">Word:</label>
+            <input type="text" id="word" name="word" required>
+            <label for="new_meaning">New Meaning:</label>
+            <input type="text" id="new_meaning" name="new_meaning" required>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+    <div class="column">
+        <h2>Dictionary</h2>
+        <ul>
+            {% for word, meaning in dictionary %}
+                <li>{{ word }} - {{ meaning }}</li>
+            {% endfor %}
+        </ul>
+    </div><footer>
+        <p>Name:Bhoumik Shah</p>
+        <p>PRN:1032220072</p>
+        <p>Roll no:3</p>
+        <p>Class:SY AI/DS</p>
+    </footer>
+
+    
+</body>
+</html>
